@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang = "en_US">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Jiahui Ruan">
+<title>Pizza Order Form</title>
+</head>
+
+<body>
+	<h1>Pizza Guys Order Form</h1>
+	<img src="pizza.jpeg" alt="Image Missing" width="256" height="256">
+	<form name="form">
+		Name<br/>
+		<input type="text" name="name" placeholder="your name" required>
+		<br/><br/>
+		Address: #### Street Name ...<br/>
+		<input type="text" name="adress" placeholder="delivery address" required>
+		<br/><br/>
+		Phone Number: 123-123-1234<br/>
+		<input type="text" name="phonenumber" placeholder="123-123-1234" required>
+		<br/><br/>
+		<u>Pizza size</u><br/>
+		<input type="radio" name="pizzasize" value="Large">Large
+		<input type="radio" name="pizzasize" value="Medium">Medium
+		<input type="radio" name="pizzasize" value="Small">Small
+		<br/><br/>
+		<u>Pizza Toppings</u><br/>
+		<input type="checkbox" name="pizzaToppings" value="Sausage">Sausage
+		<input type="checkbox" name="pizzaToppings" value="Pepperoni">Pepperoni
+		<input type="checkbox" name="pizzaToppings" value="Olives">Olives
+		<input type="checkbox" name="pizzaToppings" value="Anchovies">Anchovies
+		<input type="checkbox" name="pizzaToppings" value="Onions">Onions
+		<br/><br/>
+		<input type="submit" name="placeOrder" value="Place Order" onclick="validateForm(document.form)"/>
+		<input type="reset" name="Clear" value="clear">
+	</form>
+	<script type="text/javascript">
+		function validateForm(form) {
+			if(validatePhone(form.phonenumber) == false) {
+				alert("Not a valid Phone Number");
+			}
+			if(validateSize(form.pizzasize) == false) {
+				alert("Did not choose a pizza size");
+			}
+		}
+		function validatePhone(inputtxt) {  
+  			var reg = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
+  			if(inputtxt.value.match(reg)){  
+       			return true;        
+     		}  
+   			else{         		 
+       			return false;
+       		}  
+        } 
+        function validateSize() {
+        	var radios = form.pizzasize;
+        	for (var i = 0; i < radios.length; i++) {
+        		if(radios[i].checked) {
+        			return true;
+        		}
+        	}
+        	return false;
+        }
+	</script>
+	
+</body>
+
+</html>
