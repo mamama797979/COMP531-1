@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang = "en_US">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Jiahui Ruan">
+<title>My First HTML</title>
+<style type="text/css">
+  body{
+  font-family: Comic Sans MS;
+  font-size: 16px;
+  font-weight:bold
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+  input{
+  padding:5px 15px; 
+  background:#ccc; border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  }
+</style>
+</head>
+
+<body>
+<center>
+	<h2>Count down in <span id="indicator">15</span> second to redirect to another page.</h2>
+	<button onclick="pause()">Pause</button>
+	<button onclick="resume()">Resume</button>
+	<h1>Jiahui Ruan</h1>
+	<img src="selfie.jpeg" alt="Image Missing" width="128" height="150">
+	<h3>The story of my last trip:</h3>
+	<p>This summer vacation, my friend and I go to Thailand. We went to the zoo to see eleplants and we had a great time diving in the ocean.</p>
+	<h3>My personal networking page:</h3>
+	<a href="https://www.facebook.com/profile.php?id=100011789795678">
+		My Facebook Website
+	</a>
+	<br/>
+	<a href="https://www.instagram.com/ryan_garfield_chn">
+		My IG Website
+	</a>
+	<br/>
+	<h3>Comment Area:</h3>
+	<textarea rows="3" cols="30" id="txtfield" placeholder="feel free to write."></textarea>
+	<br/>
+	<button type="submit">submit</button>
+	<button type="Reset" onclick="clearText()">clear</button>
+</center>
+</body>
+<script type="text/javascript">
+	function clearText(){
+		document.getElementById("txtfield").value = ""
+	}
+	//alert user
+	function alertuser(){
+		alert("the page will redirect when the counter reaches zero")
+	}
+	//this function will automatically run after the webpage is load
+	setTimeout(alertuser,5000)
+	//count down
+	var indicator = document.getElementById("indicator")
+	function countdown(){
+		indicator.innerHTML = indicator.innerHTML - 1
+		if(indicator.innerHTML == 0) {
+			window.location = "http://www.clear.rice.edu/comp431/sample/hello.html"
+		}
+	}
+	//give a name to setInterval and run it
+	//use globe variable in order to pause and resume
+	timer = setInterval(countdown, 1000)
+	//pause function
+	function pause(){
+		clearInterval(timer)
+	}
+	//
+	function resume(){
+		clearInterval(timer)
+		timer = setInterval(countdown, 1000)
+	}
+</script>
+
+</html>
