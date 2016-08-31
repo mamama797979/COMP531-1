@@ -59,22 +59,22 @@
 	<script type="text/javascript">
     //create a function to validate the form
 		function validateForm(form) {
-			if(validateName(form.name) == false) {
+			if(validateName(form.name) === false) {
 				alert("Not a valid Name");
 			}
-			if(validateEmail(form.email) == false) {
+			if(validateEmail(form.email) === false) {
 				alert("Not a valid Email");
 			}
-			if(validatePhone(form.phone_number) == false) {
+			if(validatePhone(form.phone_number) === false) {
 				alert("Not a valid Phone Number");
 			}
-			if(validateBirthday(form.birthday) == false) {
+			if(validateBirthday(form.birthday) === false) {
 				alert("Not a valid Birthday");
 			}
-			if(validateZipcode(form.zipcode) == false) {
+			if(validateZipcode(form.zipcode) === false) {
 				alert("Not a valid Zipcode");
 			}
-			if(validateAge(form.birthday) == false) {
+			if(validateAge(form.birthday) === false) {
 				alert("Sorry you are under 18");
 			}
 			if(validatePassword(form.password, form.password_confirmation) == false) {
@@ -125,7 +125,7 @@
         	var day=Number(inputtxt.value.substr(3,2));
         	var today = new Date();
         	var age = today.getFullYear() - year;
-        	if(today.getMonth()<month || (today.getMonth()==month && today.getDate()<day)){age--;}
+        	if(today.getMonth()<month || (today.getMonth()===month && today.getDate()<day)){age--;}
   			if(age >= 18){ 
        			return true;        
      		}  
