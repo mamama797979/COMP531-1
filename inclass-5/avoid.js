@@ -13,26 +13,31 @@
 	        top: Math.floor( Math.random() * heightMax )
 	    });
 	}
+
+	var state = document.getElementById('btn');
+	var congrats = document.getElementById('hidden');
+
 	//when the mouse approch the button, it escapes
 	$('#btn').hover(function(e) {
 		if(e.shiftKey) {
+			return false;
+		}
+		
+		if(state.innerHTML == "Play Again") {
 			return false;
 		}
 		escape();
 	});
 	//there are two state when the btn is clicked
 	$('#btn').click(function() {
-		var state = document.getElementById('btn');
-		var congrats = document.getElementById('hidden');
-
 		if(state.innerHTML == "Click Me") {
-			/*inline-block enables multiple lines!*/
+			/*inline-block enables multiple lines*/
 			congrats.style.display = 'inline-block';
+			escape();
 			state.innerHTML = "Play Again";
 		}
 		else if(state.innerHTML == "Play Again") {
 			congrats.style.display = 'none';
-			//start over the game
 			escape();
 			state.innerHTML = "Click Me";
 		}
