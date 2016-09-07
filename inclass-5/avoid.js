@@ -26,7 +26,7 @@
 		var congrats = document.getElementById('hidden');
 
 		if(state.innerHTML == "Click Me") {
-			/*inline-block enables multiple lines*/
+			/*inline-block enables multiple lines!*/
 			congrats.style.display = 'inline-block';
 			state.innerHTML = "Play Again";
 		}
