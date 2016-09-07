@@ -5,16 +5,15 @@
     	display: none;
     }
     #hidden{
-    	align:center;
     	position: relative;
-    	top:30px;
+    	top:5px;
     	margin: 20px;
     	text-align:center;
 		border:2px solid #a1a1a1;
 		padding:10px 40px; 
 		background:Yellow;
-		width:400px;
-		height:600px;
+		width:200px;
+		height:70px;
 		border-radius:15px;
 		border-color:Red;
 		border-width:5px;
