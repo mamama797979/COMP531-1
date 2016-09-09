@@ -150,6 +150,9 @@ var createApp = function(canvas) {
 window.onload = function() {
 	var app = createApp(document.querySelector("canvas"))
 	document.getElementById("build").onclick = app.build
+	window.onclick = function(event){
+		increaseheight(event);
+	}
 }
 
 function increaseheight(event)
