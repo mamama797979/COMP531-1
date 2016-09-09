@@ -1,4 +1,6 @@
+var buildings = []
 'use strict'
+
 
 var createApp = function(canvas) { 
 	//set the frame
@@ -58,7 +60,7 @@ var createApp = function(canvas) {
 		var wndColors = [ 'yellow', 'black']
 
 		//build a building
-		buildings = []
+		
 		var build = function() { 
 			var x0 = Math.random()*canvas.width
 			var blgWidth = (windowWidth+windowSpacing) * Math.floor(Math.random()*10)
