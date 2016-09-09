@@ -58,7 +58,7 @@ var createApp = function(canvas) {
 		var wndColors = [ 'yellow', 'black']
 
 		//build a building
-		var buildings = []
+		buildings = []
 		var build = function() { 
 			var x0 = Math.random()*canvas.width
 			var blgWidth = (windowWidth+windowSpacing) * Math.floor(Math.random()*10)
@@ -152,6 +152,20 @@ window.onload = function() {
 	document.getElementById("build").onclick = app.build
 }
 
+function increaseheight(event)
+  {
+  //gain the x and y coordinates of the click position
+  xmouse=event.clientX
+  ymouse=event.clientY
 
+  //increase the height of building
+  buildings.forEach(function(value){
+  	if(xmouse>=value.x && xmouse<=value.x+value.width && ymouse>=value.y && ymouse<=value.y+value.height){
+  		//make sure the building does not exceed the window
+  		value.y-=20;
+  		value.height+=20;
+  	}
+  })
+  }
 
 
