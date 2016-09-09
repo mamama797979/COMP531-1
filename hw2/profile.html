@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = "en_US">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Jiahui Ruan">
+<title>Profile Page</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+	<center>
+	<h4>Profile Page</h4>
+	<table border="3" class="table">
+		<tr class="info">
+		<td>DisplayName:</td>
+		<td><input type="text" id="display_name_txt">
+		</td>
+		<td id="display_name">Ryan</td>
+		</tr>
+
+		<tr class="success">
+		<td>Email Address:</td>
+		<td><input type="text" id="email_txt">
+		</td>
+		<td id="email">jr@rice.edu</td>
+		</tr>
+
+		<tr class="danger">
+		<td>Phone Number:</td>
+		<td><input type="text" id="phone_number_txt">
+		</td>
+		<td id="phone_number">123-456-7890</td>
+		</tr>
+
+		<tr class="warning">
+		<td>Zipcode:</td>
+		<td><input type="text" id="zipcode_txt">
+		</td>
+		<td id="zipcode">77070</td>
+		</tr>
+		
+		<tr class="danger">
+		<td>Password:</td>
+		<td><input type="text" id="password_txt">
+		</td>
+		<td id="password">123456</td>
+		</tr>
+
+		<tr class="warning">
+		<td>Password Confirmation:</td>
+		<td><input type="text" id="password_cfm_txt">
+		</td>
+		<td id="password_cfm">123456</td>
+		</tr>
+	</table>
+	<button type="button" class="btn-primary" id="btn_update">Update</button>
+	<br/>
+	<a href="main.html"  id="btn_lnk" class="btn btn-info" role="button">Back to main page</a>
+	</center>
+</body>
+<script type="text/javascript" src="profile.js"></script>
+</html>
