@@ -66,14 +66,15 @@ var createApp = function(canvas) {
 
 			context.fillStyle= blgColors[ Math.floor(Math.random()*blgColors.length)]
 			context.fillRect(x0, floor - blgHeight, blgWidth, blgHeight)
-			
+			buildings.push({x:x0, y:floor-blgHeight, width:blgWidth, height:blgHeight, style:context.fillStyle})
+
 			for (var y = floor - floorSpacing; y > floor - blgHeight; y -= floorSpacing + windowHeight) {
 				for (var x = windowSpacing; x < blgWidth - windowWidth; x += windowSpacing + windowWidth) {
 					context.fillStyle= wndColors[Math.floor(Math.random()*wndColors.length)]
 					context.fillRect(x0 + x, y - windowHeight, windowWidth, windowHeight)
 				}
 			}
-			buildings.push({x:x0, y:floor-blgHeight, width:blgWidth, height:blgHeight, style:context.fillStyle})
+			
 		}
 
 	
@@ -108,15 +109,17 @@ var createApp = function(canvas) {
 
     	//buildings
     	buildings.forEach(function(building){
+   		
     		context.fillStyle = building.style
     		context.fillRect(building.x, building.y, building.width, building.height)
-   //  		for (var y = floor - floorSpacing; y > floor - blgHeight; y -= floorSpacing + windowHeight) {
-			// 	for (var x = windowSpacing; x < blgWidth - windowWidth; x += windowSpacing + windowWidth) {
-			// 		context.fillStyle= wndColors[Math.floor(Math.random()*wndColors.length)]
-			// 		context.fillRect(x0 + x, y - windowHeight, windowWidth, windowHeight)
-			// 	}
-			// }
+    		for (var y = floor - floorSpacing; y > floor - building.height; y -= floorSpacing + windowHeight) {
+				for (var x = windowSpacing; x < building.width - windowWidth; x += windowSpacing + windowWidth) {
+					context.fillStyle= wndColors[Math.floor(Math.random()*wndColors.length)]
+					context.fillRect(building.x + x, y - windowHeight, windowWidth, windowHeight)
+				}
+			}
     	})
+		
 
     	//draw car
     	drawCar(myCar,context)
@@ -148,5 +151,7 @@ window.onload = function() {
 	var app = createApp(document.querySelector("canvas"))
 	document.getElementById("build").onclick = app.build
 }
+
+
 
 
