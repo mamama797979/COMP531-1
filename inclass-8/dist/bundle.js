@@ -80,7 +80,7 @@
 	    };
 	
 	    var particles = Array(5).fill(true).map(function () {
-	        return (0, _particle2.default)();
+	        return (0, _particle2.default)({});
 	    });
 	
 	    frameUpdate(function (dt) {
@@ -126,21 +126,31 @@
 	};
 	
 	// default values
-	var particle = function particle() {
-	    var mass = arguments.length <= 0 || arguments[0] === undefined ? random(5, 30) : arguments[0];
-	    var position = arguments.length <= 1 || arguments[1] === undefined ? [random(), random()] : arguments[1];
-	    var velocity = arguments.length <= 2 || arguments[2] === undefined ? [random(-0.1, 0.1), random(-0.1, 0.1)] : arguments[2];
-	    var acceleration = arguments.length <= 3 || arguments[3] === undefined ? [0, 0] : arguments[3];
+	var particle = function particle(_ref) {
+	    var _ref$mass = _ref.mass;
+	    var mass = _ref$mass === undefined ? random(5, 30) : _ref$mass;
+	    var _ref$position = _ref.position;
+	    var position = _ref$position === undefined ? [random(), random()] : _ref$position;
+	    var _ref$velocity = _ref.velocity;
+	    var velocity = _ref$velocity === undefined ? [random(-0.1, 0.1), random(-0.1, 0.1)] : _ref$velocity;
+	    var _ref$acceleration = _ref.acceleration;
+	    var acceleration = _ref$acceleration === undefined ? [0, 0] : _ref$acceleration;
 	
 	    return { acceleration: acceleration, velocity: velocity, position: position, mass: mass };
 	};
 	
-	var update = function update(_ref, delta, canvas) {
-	    var acceleration = _ref.acceleration;
-	    var velocity = _ref.velocity;
-	    var position = _ref.position;
-	    var mass = _ref.mass;
+	var update = function update(_ref2, delta, canvas) {
+	    var acceleration = _ref2.acceleration;
+	    var velocity = _ref2.velocity;
+	    var position = _ref2.position;
+	    var mass = _ref2.mass;
 	
+	    velocity[0] += acceleration[0] * delta;
+	    velocity[1] += acceleration[1] * delta;
+	    position[0] += velocity[0] * delta;
+	    position[1] += velocity[1] * delta;
+	    position[0] = (position[0] % canvas.width + canvas.width) % canvas.width;
+	    position[1] = (position[1] % canvas.height + canvas.height) % canvas.height;
 	    return { mass: mass, acceleration: acceleration, velocity: velocity, position: position };
 	};
 	
