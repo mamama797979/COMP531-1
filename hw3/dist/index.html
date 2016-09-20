@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang = "en_US">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Jiahui Ruan">
+<title>Landing Page</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+<center>
+	<h2>Welcome to RiceBook</h2>
+</center>
+<div class="container">
+	<div class="row">
+		<img src="img/rice_university.jpg" alt="Image Missing" id="rice_img">
+	</div>
+
+<div class="row">
+	<div class="col-md-7" id="register_form">
+		<form id="form_reg" action="main.html" method="GET" role="form">
+			<fieldset class="form-group">
+			<legend>Register</legend>
+		    <div class="form-group row">
+				  <label class="col-md-2 col-form-label" for="name">Account Name</label>
+			      <div class="col-md-3">
+					    <input type="text" id="name" class="form-control" placeholder="your name" required>
+			      </div>		
+				  <label class="col-md-2 col-form-label" for="display_name">Display Name(optional)</label>
+				  <div class="col-md-3">
+		      			<input type="text" id="display_name" class="form-control" placeholder="your preferred name">
+				  </div>
+		    </div>
+		    <div class="form-group row">
+			      <label  class="col-md-2 col-form-label" for="email">Email Address</label>
+				  <div class="col-md-3">
+			      		<input type="text" id="email" class="form-control" placeholder="a@b.co" required>
+				  </div>
+				  <label class="col-md-2 col-form-label" for="phone_number">Phone Number</label>
+				  <div class="col-md-3">
+		      			<input type="text" id="phone_number" class="form-control" placeholder="123-123-1232" required>
+				  </div>
+		    </div>
+		    <div class="form-group row">
+				  <label class="col-md-2 col-form-label" for="birthday">Date of Birth</label>
+				  <div class="col-md-3">
+		      			<input type="text" id="birthday" class="form-control" placeholder="01/01/1990" required>
+				  </div>
+				  <label class="col-md-2 col-form-label" for="zipcode">Zip Code</label>
+				  <div class="col-md-3">
+		      			<input type="text" id="zipcode" class="form-control" placeholder="XXXXX" required>
+				  </div>
+		    </div>
+		    <div class="form-group row">
+				  <label class="col-md-2 col-form-label" for="password">Password</label>
+				  <div class="col-md-3">
+		      			<input type="password" id="password" class="form-control" required>
+				  </div>
+				  <label class="col-md-2 col-form-label" for="password_cfm">Password Confirmation</label>
+				  <div class="col-md-3">
+		      			<input type="password" id="password_cfm" class="form-control" required>
+				  </div>
+		    </div>
+		    <div class="form-group row" id="reg_frm_btn">
+		    	<input type="hidden" name="timestamp" id="settime">
+				<input type="submit" id="btn_reg" class="btn btn-success" value="Register"/>
+				<input type="reset" id="Clear" class="btn btn-info" value="Clear">
+			</div>
+			</fieldset>
+		</form>
+	</div>
+	<div class="col-md-5" id="form_login">
+		<form id="form_lgn" class="form-horizontal" action="main.html" method="GET" role="form">
+			<fieldset class="form-group">
+			<legend>Login</legend>
+			<div class="form-group row">
+				  <label class="col-md-4 col-form-label" for="username">username</label>
+				  <div class="col-md-8">
+		      			<input type="text" id="user_name" class="form-control" placeholder="username" required>
+				  </div>
+		    </div>
+		    <div class="form-group row">
+				  <label class="col-md-4 col-form-label" for="user_password">Password</label>
+				  <div class="col-md-8">
+		      			<input type="password" id="user_password" class="form-control" placeholder="password" required>
+				  </div>
+		    </div>
+		    <div class="form-group row" id="lgn_frm_btn">
+		    		<input type="submit" id="login" class="btn btn-success" value="Login">
+		    </div>
+		    </fieldset>
+		</form>
+	</div>
+</div>
+</div>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

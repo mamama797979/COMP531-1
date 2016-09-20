@@ -1,0 +1,101 @@
+	body{
+	  background-color: aqua;
+	  font-family: Comic Sans MS;
+	  font-size: 14px;
+	  font-weight:bold
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;
+	}
+	div.container{
+		border-style: outset;
+		border-color: black;
+		padding: 20px;
+	}
+	#reg_frm_btn{
+		margin-left:auto;
+		margin-right:auto;
+		width:40%;
+	}
+	#lgn_frm_btn{
+		margin-left:auto;
+		margin-right:auto;
+		width:35%;
+	}
+	#Clear{
+		width:30%;
+		margin-left:10%;
+	}
+	#header{
+		margin-left:auto;
+		margin-right:auto;
+		width:35%;
+	}
+	#rice_img{
+		margin-left:40%;
+		width:20%;
+	}
+	#main_page_img{
+		margin-left:auto;
+		margin-right:auto;
+		width:50%;
+	}
+	#btn_lnk{
+	  	position: relative;
+	  	top:5px;
+	}
+	img{
+		height: 128px;
+		width: 128px;
+		padding: 8px;
+	}
+	#btn_updt_img{
+		visibility:hidden;
+		display: none;
+	}
+	#btn_add_img{
+		visibility:hidden;
+		display: none;
+	}
+	#personal_info{
+		border-style: outset;
+		border-right-style: none;
+		border-color: black;
+		padding: 10px;
+	}
+	#personal_info_top{
+		border-bottom-style: outset;
+		border-color: black;
+		padding: 10px;
+	}
+	#post_area{
+		border-style: outset;
+		border-color: black;
+		padding: 10px;
+	}
+	#search_area{
+		border-style: outset;
+		border-top-style: none;
+		border-bottom-style: none;
+		border-color: black;
+		padding: 10px;
+	}
+	#update_sts_area{
+		margin-left: 25%;
+	}
+	#flwer_table{
+		margin-left:35%;
+	}
+	#profile_rice_img{
+		margin-left: 50%;
+		width: 200px;
+	}
+	#update_row{
+		border-bottom-style: outset;
+		border-color: black;
+		padding: 10px;
+	}
+	#main_page_btn_row{
+		border-bottom-style: outset;
+		border-color: black;
+		padding: 10px;
+	}

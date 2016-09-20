@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang = "en_US">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Jiahui Ruan">
+<title>Profile Page</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+	<center>
+		<h3>Profile Page</h3>
+	</center>
+	<div class="container">
+		<div class="row" id="main_page_btn_row">
+			<button type="button" id="btn_main_page" class="btn btn-info">Main page</button>
+		</div>
+		<div class="row">
+				<img id="usr_img" src="img/12.jpg">
+				<img src="img/rice_university.jpg" alt="Image Missing" id="profile_rice_img">
+		</div>
+		<div class="row" id="update_row">
+				<botton id="lbl_updt_img" for="files" class="btn btn-primary">Upload new picture</botton>
+				<input id="btn_updt_img" type="file" value="Update new picture" />
+		</div>
+		<div class="row" id="profile_info_table">
+			<div class="col-md-6">
+				<h4>Current info</h4>
+				<table border="3" class="table">
+					<tr class="info">
+					<td id="display_name">Ryan</td>
+					</tr>
+
+					<tr class="success">
+					<td id="email">jr@rice.edu</td>
+					</tr>
+
+					<tr class="danger">
+					<td id="phone_number">123-456-7890</td>
+					</tr>
+
+					<tr class="warning">
+					<td id="zipcode">77070</td>
+					</tr>
+					
+					<tr class="danger">
+					<td id="password">123456</td>
+					</tr>
+
+					<tr class="warning">
+					<td id="password_cfm">123456</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-md-6">
+					<h4>Update info</h4>
+					<table border="3" class="table">
+					<tr class="info">
+					<td>DisplayName:</td>
+					<td><input type="text" id="display_name_txt">
+					</td>
+					</tr>
+
+					<tr class="success">
+					<td>Email Address:</td>
+					<td><input type="text" id="email_txt">
+					</td>
+					</tr>
+
+					<tr class="danger">
+					<td>Phone Number:</td>
+					<td><input type="text" id="phone_number_txt">
+					</td>
+					</tr>
+
+					<tr class="warning">
+					<td>Zipcode:</td>
+					<td><input type="text" id="zipcode_txt">
+					</td>
+					</tr>
+					
+					<tr class="danger">
+					<td>Password:</td>
+					<td><input type="password" id="password_txt">
+					</td>
+					</tr>
+
+					<tr class="warning">
+					<td>Password Confirmation:</td>
+					<td><input type="password" id="password_cfm_txt">
+					</td>
+					</tr>
+					</table>
+					<button type="button" class="btn-primary" id="btn_update">Update</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="profile.js"></script>
+</html>
