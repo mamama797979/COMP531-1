@@ -19,8 +19,12 @@ function createElement(node) {
 	// the node might have event listeners that need to be registered
 	// the node might have children that need to be created as well
 
-    //set the ending point of traverse
+    //create every tag of node
     var element = document.createElement(node.tag)
+    //if node has propertites, retrive it.
+    //but sometime some key can not be diretcly set to be attribute 
+    //onclick we have to make it a JS request
+    //className should be change to class
     if (node.props) {
         Object.keys(node.props).forEach((key) => {
             if (key === 'onClick') {
@@ -35,6 +39,8 @@ function createElement(node) {
             }
         })
     }
+    //taverse every children 
+    //if it is a string, make it value of the tag!
     if (node.children) {
         node.children.forEach((tag) => {
             if (typeof tag === 'string') {
@@ -44,6 +50,7 @@ function createElement(node) {
             }
         })
     }
+    //return the element for futher use
     return element
 }
 
@@ -71,15 +78,18 @@ function updateElement(parent, newNode, oldNode, index=0) {
     	// to determine if an element has changed or not
     	// be sure to also update the children!
         if (changed(newNode, oldNode)) {
+            //splice the object inoder to get push the new element inside
             parent.children.splice(index, 0, createElement(newNode))
         }
         else {
             if(newNode.children){
                 if (newNode.children<oldNode.children) {
+                    //if the newNode has less children, we should remove the oldNode
                     parent.removeChild(parent.children[index])
                     parent.appendChild(createElement(newNode))
                 }
                 else {
+                    //when the newNode has more children than oldNode
                     newNode.children.forEach(function(child, i, array) {
                         updateElement(parent.children[index], child, oldNode.children[i], i)
                     })
