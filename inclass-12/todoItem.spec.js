@@ -10,22 +10,22 @@ describe('Validate ToDoItem', () => {
 	it('should display a single ToDo', () => {
 		// use TestUtils.renderIntoDocument
 		const node = TestUtils.renderIntoDocument(<div>
-			<ToDoItem id={0} test={newText} done={false} toggle={_=>_} remove={_=>_}/>
+			<ToDoItem id={0} text={"newText"} done={false}/>
 			</div>)
 		// findDOMNode and assert 3 children of the ToDoItem element
-		const element = findDOMNode(node).children[0]
-		expect(element.children.length).to.equal(3)
+		const elements = findDOMNode(node).children[0]
+		expect(elements.children.length).to.equal(3)
 		// assert the className is ''
-		expect(element.children[1].className).to.equal('')
+		expect(elements.className).to.equal('')
 		// assert the innerHTML of the todo is the text you initially set
-		expect(element.children[1].innerHTML).to.equal('newText')
+		expect(elements.children[1].innerHTML).to.equal('newText')
 	})
 
 	it('should toggle completed when clicked', () => {
-		const toggled = false
+		let toggled = false
 		// use TestUtils.renderIntoDocument
 		const node = TestUtils.renderIntoDocument(<div>
-			<ToDoItem id={0} test={''} done={toggled} toggle={() => toggled = !toggled} remove={_=>_}/>
+			<ToDoItem id={0} text={''} done={toggled} toggle={() => {toggled = !toggled}} remove={_=>_}/>
 			</div>)
 		// when the checkbox is clicked via TestUtils.Simulate.click()
 		const element = findDOMNode(node).children[0]
@@ -35,10 +35,10 @@ describe('Validate ToDoItem', () => {
 	})
 
 	it('should remove an item when clicked', () => {
-		const removed = false
+		let removed = false
 		// use TestUtils.renderIntoDocument
 		const node = TestUtils.renderIntoDocument(<div>
-			<ToDoItem id={0} test={''} done={false} toggle={_=>_} remove={() => removed = !removed}/>
+			<ToDoItem id={0} text={''} done={false} toggle={_=>_} remove={() => {removed = !removed}}/>
 			</div>)
 		// when the remove button is clicked via TestUtils.Simulate.click()
 		const element = findDOMNode(node).children[0]
@@ -50,7 +50,7 @@ describe('Validate ToDoItem', () => {
 	it('should display a completed ToDo', () => {
 		// use TestUtils.renderIntoDocument
 		const node = TestUtils.renderIntoDocument(<div>
-			<ToDoItem id={0} test={''} done={true} toggle={_=>_} remove={_=>_}/>
+			<ToDoItem id={0} text={''} done={true} toggle={_=>_} remove={_=>_}/>
 			</div>)
 		// the item should have done=true
 		const element = findDOMNode(node).children[0]
