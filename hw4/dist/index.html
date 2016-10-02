@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="warship.css">
+	<script src="warship.js"></script>
+</head>
+<body>
+
+<img src="warship.png" id="warship" alt="warship"/>
+<img src="submarine.png" id="submarine" alt="submarine">
+<img src="bomb.png" id="bomb" alt="bomb">
+<img src="spark.png" id="spark" alt="spark">
+<div>
+	<button id="restart">Restart</button>
+	<h3>Bomb Used: <span id="bomb_used"></span>       Submarine Left: <span id="submarine_left"></span>      Time Used: <span id="time_used"></span> seconds</h3>
+	<h4>Instruction: Use left and right to control warship. Use white-space or click mouse to drop the bomb. Submarine might not disappear after being hit by bomb because you didn't hit it in the middle. Each time you drop the bomb, you should wait a few scecond to drop another one. If you couldn't finish the game in 90 seconds, the speed of submarines increase. </h4>
+	<h4></h4>
+</div>
+<div id="canvas_div">
+	<canvas></canvas>
+</div>
+
+</body>
+</html>

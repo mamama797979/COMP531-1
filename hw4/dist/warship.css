@@ -1,0 +1,20 @@
+#warship{
+	display: none;
+}
+#submarine{
+	display: none;
+}
+#bomb{
+	display: none;
+}
+#spark{
+	display: none;
+}
+h3{
+	white-space:pre;
+}
+#canvas_div{
+	position:fixed; 
+	top:3em; 
+	left:0em;
+}
