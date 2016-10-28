@@ -1,3 +1,4 @@
+'use strict'
 let articles = [{id : 1, author: 'Scott', text: 'A post1'},
                 {id : 2, author: 'Vivid', text: 'A post2'},
                 {id : 3, author: 'Max', text: 'A post3'}
