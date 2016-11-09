@@ -16,8 +16,8 @@ app.use(cookieParser());
 app.use(bodyParser.json())
 app.use(middleware)
 
-require('./src/auth')(app)
 require('./src/articles')(app)
+require('./src/auth')(app)
 require('./src/profile')(app)
 require('./src/following')(app)
 
