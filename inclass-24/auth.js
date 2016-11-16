@@ -55,13 +55,13 @@ const login = (req, res) => {
             return
         }
         userObj = users[0]
-		if(userObj){
+		if(!userObj){
 			res.sendStatus(401).send("Don't have this user in db")
 		}
+		var salt = userObj.salt;
+		var hash = userObj.hash;
 
 		if(md5(password + salt) === hash){
-			var salt = userObj.salt;
-			var hash = userObj.hash;
 			var const sessionKey = md5(secret + new Date().getTime() + db[username])
 			redis.hmset(sessionKey, userObj)
 			res.cookie(cookieKey, sessionKey, {maxAge: 3600*1000, httpOnly: true})
