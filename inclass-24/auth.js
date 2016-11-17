@@ -62,7 +62,7 @@ const login = (req, res) => {
 		var hash = userObj.hash;
 
 		if(md5(password + salt) === hash){
-			var const sessionKey = md5(secret + new Date().getTime() + db[username])
+			const sessionKey = md5(secret + new Date().getTime() + db[username])
 			redis.hmset(sessionKey, userObj)
 			res.cookie(cookieKey, sessionKey, {maxAge: 3600*1000, httpOnly: true})
 			res.send({ username: username, result: 'success'})
