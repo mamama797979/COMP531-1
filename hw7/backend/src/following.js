@@ -5,7 +5,7 @@ const Profile = require('./model.js').Profile
 const getFollowing = (req, res) => {
 	const username = req.params.user ? req.params.user : req.username
 	Profile.find({username: username}).exec(function(err, profile){
-		if(profile === null || profile.length === 0){
+		if(!profile || profile.length === 0){
 			res.status(400).send("this user doesn't exist in the db")
             return
 		}
@@ -21,7 +21,7 @@ const putFollowing = (req, res) => {
 		res.status(400).send('you did not supply the user to follow')
 	}
 	Profile.find({username: user}).exec(function(err, profile){
-		if(profile === null || profile.length === 0) {
+		if(!profile || profile.length === 0) {
 			res.status(400).send('you can not follow those who are not in db')
 		} else {
 			Profile.findOneAndUpdate({username: username}, { $addToSet: { following: user }}, {upsert: true, new: true}, function(err, profile){})

@@ -9,7 +9,7 @@ const getHeadlines = (req, res) => {
 	const users = req.params.users ? req.params.users.split(',') : [req.username]
 	Profile.find({username: {$in: users}}).exec(function(err, profiles){
 		let headlines = []
-		if (profiles === null || profiles.length === 0){
+		if (!profiles || profiles.length === 0){
             res.status(400).send("none of these users exist in the db or you didn't supply at all")
             return
         }
@@ -32,7 +32,7 @@ const putHeadline = (req, res) => {
 const getEmail = (req, res) => {
 	const username = req.params.user ? req.params.user : req.username
 	Profile.find({username: username}).exec(function(err, profile){
-		if(profile === null || profile.length === 0){
+		if(!profile || profile.length === 0){
 			res.status(400).send("this user doesn't exist in the db")
             return
 		}
@@ -55,7 +55,7 @@ const putEmail = (req,res) => {
 const getZipcode = (req, res) => {
 	const username = req.params.user ? req.params.user : req.username
 	Profile.find({username: username}).exec(function(err, profile){
-		if(profile === null || profile.length === 0){
+		if(!profile || profile.length === 0){
 			res.status(400).send("this user doesn't exist in the db")
             return
 		}
@@ -79,7 +79,7 @@ const getAvatars = (req, res) => {
 	const users = req.params.users ? req.params.users.split(',') : [req.username]
 	Profile.find({username: {$in: users}}).exec(function(err, profiles){
 		let avatars = []
-		if (profiles === null || profiles.length === 0){
+		if (!profiles || profiles.length === 0){
             res.status(400).send("none of these users exist in the db or you didn't supply at all")
             return
         }

@@ -64,7 +64,7 @@ const login = (req, res) => {
 	}
 
 	User.find({username: username}).exec(function(err, users){
-        if (users === null || users.length === 0){
+        if (!users || users.length === 0){
             res.sendStatus(401)
             return
         }
@@ -120,13 +120,13 @@ passport.serializeUser(function(user, done){
 
 passport.deserializeUser(function(id,done){
 	const user = users[id]
-	done(null,user)
+	done(null, user)
 })
 
 passport.use(new FacebookStrategy(config,
 	function(token, refreshToken, profile, done){
 		process.nextTick(function(){
-			return done(null,profile);
+			return done(null, profile);
 		})
 	}
 ))

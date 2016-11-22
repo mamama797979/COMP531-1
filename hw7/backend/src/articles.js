@@ -8,7 +8,7 @@ const md5 = require('md5')
 const getArticle = (req, res) => {
     if(req.params.id) {
         Article.find(ObjectId(req.params.id)).exec(function(err, articles){
-        if (articles === null || articles.length === 0){
+        if (!articles || articles.length === 0){
             res.status(401).send("Don't have this article ID")
             return
         }
@@ -26,7 +26,7 @@ const updateArticle = (req, res) => {
     	res.status(400).send('invalid ID!')
     } else {
         Article.find(ObjectId(req.params.id)).exec(function(err, articles){
-                if (articles === null || articles.length === 0) {
+                if (!articles || articles.length === 0) {
                     res.status(401).send("Don't have this article ID")
                     return
                 } else if(req.body.commentId === "-1") {
@@ -43,7 +43,7 @@ const updateArticle = (req, res) => {
                 } else if(req.body.commentId){
                     //update comment
                     Comment.find({commentId: req.body.commentId}).exec(function(err, comments){
-                        if (comments === null || comments.length === 0) {
+                        if (!comments || comments.length === 0) {
                             res.status(401).send("Don't have this comment ID")
                             return
                         }else if(comments[0].author !== req.username) {
@@ -79,7 +79,7 @@ const postArticle = (req, res) => {
     	res.status(400).send("text is missing");
     	return;
     }
-    const articleObj = {text: req.body.text, author: req.username, img:null, date:new Date(), comments:[]}
+    const articleObj = new Article({text: req.body.text, author: req.username, img:null, date:new Date(), comments:[]})
     new Article(articleObj).save(function (err, articles){
         if(err) return console.log(err)
         res.status(200).send({articles: [articles]})
