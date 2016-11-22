@@ -151,7 +151,7 @@ function isLoggedIn(req, res, next){
 			next()
 		}
 		else{
-			res.redirect('/login')
+			res.sendStatus(401)
 		}
     })
 	
